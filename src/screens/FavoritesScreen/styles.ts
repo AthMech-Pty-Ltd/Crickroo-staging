@@ -1,0 +1,181 @@
+import { StyleSheet } from 'react-native';
+import { colors } from '../../theme/colors';
+import { typography } from '../../theme/typography';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.neutrals.bg,
+  },
+  header: {
+    height: 64,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    gap: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.neutrals.card_border_15,
+  },
+  headerTitle: {
+    ...typography.headers.h4.semiBold,
+    color: colors.neutrals.white,
+  },
+  fixedSection: {
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 12,
+    left: 12,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.glass.black_60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+  },
+  videoCard: {
+    width: '100%',
+    aspectRatio: 1,
+    borderRadius: 5,
+    overflow: 'hidden',
+    backgroundColor: colors.neutrals.card_bg,
+  },
+  videoThumbnail: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+  videoOverlay: {
+    ...StyleSheet.absoluteFill,
+    backgroundColor: colors.glass.black_30,
+  },
+  centerControl: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  playCenter: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: colors.glass.black_60,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  playIcon: {
+    color: colors.neutrals.white,
+    fontSize: 20,
+    marginLeft: 4,
+  },
+  bottomControls: {
+    position: 'absolute',
+    bottom: 16,
+    left: 16,
+    right: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  timeText: {
+    ...typography.captions.c1.medium,
+    color: colors.neutrals.white,
+    backgroundColor: colors.glass.black_60,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 500,
+  },
+  progressBarBg: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 4,
+    backgroundColor: colors.glass.white_10,
+  },
+  progressBarFill: {
+    height: '100%',
+    backgroundColor: colors.primary.main,
+    borderRadius: 2,
+  },
+  sectionLabel: {
+    ...typography.body.b2.semiBold,
+    color: colors.neutrals[70],
+    textTransform: 'uppercase',
+    marginTop: 8,
+    marginBottom: 12,
+  },
+  list: {
+    flex: 1,
+  },
+  listContent: {
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 40,
+  },
+  gridRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    gap: 12,
+    marginBottom: 8,
+  },
+  cardSpacer: {
+    flex: 1,
+  },
+  listContentWithButton: {
+    paddingBottom: 96,
+  },
+  downloadButton: {
+    position: 'absolute',
+    bottom: 16,
+    left: 20,
+    right: 20,
+    backgroundColor: colors.primary.main,
+    borderRadius: 12,
+    height: 56,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  downloadButtonText: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.black,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40,
+    gap: 20,
+  },
+  emptyIconWrapper: {
+    width: 84,
+    height: 84,
+    borderRadius: 42,
+    backgroundColor: colors.neutrals.card_bg,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyTitle: {
+    ...typography.body.b1.medium,
+    color: colors.neutrals.white,
+    textAlign: 'center',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingMoreContainer: {
+    paddingVertical: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  listContentNoPaddingTop: {
+    paddingTop: 0,
+  },
+});

@@ -1,0 +1,28 @@
+import { RegistrationData } from '../types';
+
+export const INITIAL_REGISTRATION_DATA: RegistrationData = {
+  email: '',
+  password: '',
+  otp: '',
+  dob: '',
+  role: 'player',
+  alsoPlayer: false,
+  name: '',
+  username: '',
+  height: '',
+  countryCode: '+91',
+  phoneNumber: '',
+  heightUnit: 'ft/in',
+  weight: '',
+  weightUnit: 'kg',
+  facePhotos: [],
+  permissions: { camera: false, location: false },
+  cricketProfile: 'all_rounder',
+  battingHand: 'right',
+  battingPosition: '',
+  bowlingArm: 'right',
+  bowlingStyle: '',
+  academyName: '',
+  academyCode: '',
+  coachCode: '',
+};

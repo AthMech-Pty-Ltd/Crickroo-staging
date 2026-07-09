@@ -1,0 +1,321 @@
+import { StyleSheet, Dimensions } from 'react-native';
+import { colors } from '../../theme/colors';
+import { typography } from '../../theme/typography';
+
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.neutrals.bg,
+  },
+  camera: {
+    ...StyleSheet.absoluteFill,
+  },
+  overlay: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 60,
+  },
+  closeButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 50,
+    backgroundColor: colors.glass.black_40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  closeIcon: {
+    width: 24,
+    height: 24,
+    tintColor: colors.neutrals.white,
+  },
+  timerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.glass.black_40,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+  },
+  bottomBar: {
+    alignItems: 'center',
+    paddingTop: 8,
+    paddingHorizontal: 20,
+    width: '100%',
+  },
+  recordButtonContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 4,
+    borderColor: colors.glass.white_20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  recordButton: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: colors.neutrals.white,
+  },
+  recordingActive: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    backgroundColor: '#FF3B30',
+  },
+  tapLabelContainer: {
+    marginBottom: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 4,
+    backgroundColor: colors.glass.black_60,
+    borderRadius: 15,
+  },
+  tapLabelText: {
+    ...typography.body.b2.semiBold,
+    color: colors.neutrals.white,
+  },
+  pitchGuide: {
+    position: 'absolute',
+    left: SCREEN_WIDTH * 0.45,
+    width: SCREEN_WIDTH * 0.1,
+    top: SCREEN_HEIGHT * 0.45,
+    bottom: SCREEN_HEIGHT * 0.15,
+    backgroundColor: 'rgba(74, 91, 230, 0.4)', // Translucent blue strip
+    zIndex: 0,
+  },
+  hintText: {
+    ...typography.captions.c1.medium,
+    color: colors.neutrals.white,
+    letterSpacing: 1,
+  },
+  placeholder: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
+  },
+  placeholderText: {
+    ...typography.body.b1.medium,
+    color: colors.neutrals.white,
+    textAlign: 'center',
+    marginTop: 16,
+  },
+  spacer: {
+    width: 42,
+  },
+  resolutionBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: colors.glass.black_40,
+    borderRadius: 10,
+  },
+  resolutionBadgeText: {
+    ...typography.captions.c1.semiBold,
+    color: colors.neutrals.white,
+  },
+  notCapableText: {
+    ...typography.captions.c1.medium,
+    color: '#FF3B30',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  instructionContainer: {
+    position: 'absolute',
+    top: 140,
+    left: 24,
+    right: 24,
+    alignItems: 'center',
+  },
+  instructionBanner: {
+    backgroundColor: colors.glass.black_60,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 12,
+    width: '100%',
+  },
+  instructionText: {
+    ...typography.body.b2.medium,
+    color: colors.neutrals.white,
+    textAlign: 'left',
+    lineHeight: 20,
+  },
+  controlBar: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nextButton: {
+    width: '100%',
+  },
+  nextButtonText: {
+    // Relying on standard Button styling for matching
+  },
+  secondaryButtonContainer: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    borderWidth: 2,
+    borderColor: colors.glass.white_20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.glass.black_40,
+  },
+  secondaryButton: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.semantic.blue50,
+  },
+  redetectButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: colors.glass.black_40,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  redetectText: {
+    ...typography.body.b2.medium,
+    color: colors.primary.main,
+    letterSpacing: 0.5,
+  },
+  timerBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: colors.glass.black_60,
+    borderRadius: 10,
+    gap: 8,
+  },
+  timerDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#FF3B30', // Standard recording red
+  },
+  timerText: {
+    ...typography.body.b2.semiBold,
+    color: colors.neutrals.white,
+    fontFamily: undefined, // Using system font for timer usually looks better
+  },
+  resumeButton: {
+    position: 'absolute',
+    bottom: 120,
+    backgroundColor: colors.primary.main,
+    paddingHorizontal: 32,
+    paddingVertical: 12,
+    borderRadius: 30,
+    elevation: 5,
+    shadowColor: colors.neutrals.black,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  resumeText: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.white,
+    letterSpacing: 1,
+  },
+  snapshotBanner: {
+    position: 'absolute',
+    top: 130,
+    backgroundColor: colors.semantic.blue50,
+    paddingHorizontal: 20,
+    paddingVertical: 6,
+    borderRadius: 20,
+    zIndex: 10,
+  },
+  snapshotOverlay: {
+    ...StyleSheet.absoluteFill,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.glass.black_40,
+  },
+  snapshotBannerText: {
+    ...typography.captions.c1.semiBold,
+    color: colors.neutrals.white,
+    letterSpacing: 2,
+  },
+  boundingBox: {
+    position: 'absolute',
+    borderWidth: 2,
+    borderColor: colors.neutrals.white,
+    borderStyle: 'dashed',
+    borderRadius: 2,
+    opacity: 0.9,
+  },
+  boundingBoxDetected: {
+    borderColor: '#2FFFD4',
+    borderWidth: 3,
+    opacity: 1,
+  },
+  boundingBoxMissing: {
+    borderColor: colors.error[65],
+    borderWidth: 3,
+    opacity: 1,
+  },
+  labelContainer: {
+    position: 'absolute',
+    top: -24,
+    left: 0,
+    right: 0,
+    backgroundColor: colors.glass.black_60,
+    paddingHorizontal: 6,
+    paddingVertical: 4,
+    borderRadius: 6,
+    alignItems: 'center',
+  },
+  labelText: {
+    ...typography.captions.c2.medium,
+    color: colors.neutrals.white,
+  },
+  labelContainerDetected: {
+    backgroundColor: '#073A32',
+    borderWidth: 1,
+    borderColor: '#2FFFD4',
+  },
+  labelContainerMissing: {
+    backgroundColor: '#3A1010',
+    borderWidth: 1,
+    borderColor: colors.error[65],
+  },
+  labelTextDetected: {
+    color: '#2FFFD4',
+    fontWeight: '700',
+  },
+  labelTextMissing: {
+    color: colors.error[65],
+    fontWeight: '700',
+  },
+  calibratingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.45)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+  },
+  calibratingBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 12,
+    backgroundColor: colors.glass.black_60,
+    borderRadius: 12,
+  },
+  calibratingText: {
+    ...typography.body.b2.medium,
+    color: colors.neutrals.white,
+    marginLeft: 10,
+    letterSpacing: 0.5,
+  },
+});

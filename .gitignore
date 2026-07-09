@@ -1,0 +1,45 @@
+node_modules
+
+# macOS
+.DS_Store
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.staging.example
+
+# Bundles, logs, archives
+*.log
+src.zip
+
+# React Native / Metro / Watchman
+.expo
+.expo-shared
+.metro-health-check*
+
+# iOS
+ios/build
+ios/Pods
+*.xcuserstate
+xcuserdata
+ios/**/*.xcuserdata
+ios/**/*.xcuserstate
+ios/.xcode.env.local
+
+# Android
+android/.gradle
+android/build
+android/app/build
+android/app/.cxx
+android/app/src/main/assets
+android/local.properties
+android/**/*.keystore
+android/app/upload_certificate.pem
+android/link-assets-manifest.json
+
+# Misc
+tmp
+vendor/bundle
+build_log.txt
+ios/link-assets-manifest.json

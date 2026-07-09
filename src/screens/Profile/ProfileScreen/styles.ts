@@ -1,0 +1,298 @@
+import { StyleSheet } from 'react-native';
+import { colors } from '../../../theme/colors';
+import { typography } from '../../../theme/typography';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.neutrals.bg,
+  },
+  footer: {
+    padding: 20,
+    paddingBottom: 40,
+    borderTopWidth: 1,
+    borderTopColor: colors.neutrals.card_border_15,
+  },
+  header: {
+    height: 64,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.neutrals.card_border_15,
+    gap: 8,
+  },
+  backButton: {
+    width: 42,
+    height: 42,
+    borderRadius: 50,
+    backgroundColor: colors.glass.black_40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: -8,
+  },
+  backIcon: {
+    width: 24,
+    height: 24,
+    tintColor: colors.neutrals.white,
+  },
+  headerTitle: {
+    ...typography.headers.h4.semiBold,
+    color: colors.neutrals.white,
+  },
+  scrollContent: {
+    padding: 20,
+    paddingBottom: 90,
+  },
+  avatarSection: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  avatarWrapper: {
+    position: 'relative',
+    marginBottom: 12,
+  },
+  avatar: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    borderWidth: 2,
+    borderColor: colors.neutrals.card_border_15,
+  },
+  avatarPlaceholder: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: colors.neutrals.card_bg,
+    borderWidth: 2,
+    borderColor: colors.neutrals.card_border_15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cameraButton: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: colors.neutrals[20],
+    borderWidth: 2,
+    borderColor: colors.neutrals.bg,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  nameText: {
+    ...typography.headers.h4.semiBold,
+    color: colors.neutrals.white,
+  },
+  completionCard: {
+    backgroundColor: colors.neutrals.card_bg,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.primary[15],
+    padding: 16,
+    marginBottom: 20,
+    gap: 10,
+  },
+  completionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  completionLabel: {
+    ...typography.body.b2.medium,
+    color: colors.neutrals[70],
+  },
+  completionPercent: {
+    ...typography.body.b2.semiBold,
+    color: colors.primary.main,
+  },
+  progressTrack: {
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: colors.neutrals[20],
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    borderRadius: 3,
+    backgroundColor: colors.primary.main,
+  },
+  menuGroup: {
+    backgroundColor: colors.neutrals.card_bg,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: colors.neutrals.card_border_15,
+    marginBottom: 24,
+  },
+  divider: {
+    height: 1,
+    backgroundColor: colors.neutrals.card_border_15,
+  },
+  sectionTitle: {
+    ...typography.body.b2.semiBold,
+    color: colors.neutrals[70],
+    marginBottom: 12,
+    marginLeft: 4,
+  },
+  subscriptionCard: {
+    backgroundColor: colors.neutrals.card_bg,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: colors.neutrals.card_border_15,
+    marginBottom: 24,
+    overflow: 'hidden',
+  },
+  subscriptionActions: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    gap: 10,
+  },
+  subscriptionActionButton: {
+    width: '100%',
+  },
+  coachCard: {
+    backgroundColor: colors.neutrals.card_bg,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: colors.neutrals.card_border_15,
+    marginBottom: 32,
+  },
+  upgradeBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 2,
+    borderRadius: 15,
+  },
+  upgradeText: {
+    ...typography.captions.c2.semiBold,
+    color: colors.neutrals.black,
+  },
+  logoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: colors.neutrals.card_bg,
+    borderRadius: 24,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: colors.error[30],
+  },
+  logoutIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.neutrals[20],
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+  },
+  logoutIcon: {
+    width: 20,
+    height: 20,
+    tintColor: colors.error[65],
+  },
+  logoutText: {
+    ...typography.body.b1.semiBold,
+    color: colors.error[65],
+  },
+  loader: {
+    flex: 1,
+  },
+  switchButton: {
+    backgroundColor: colors.neutrals.white,
+    paddingHorizontal: 18,
+    paddingVertical: 5,
+    borderRadius: 20,
+  },
+  switchButtonText: {
+    ...typography.captions.c2.semiBold,
+    color: colors.neutrals.black,
+  },
+  modalSubtitle: {
+    ...typography.body.b2.regular,
+    color: colors.neutrals[70],
+    marginBottom: 20,
+  },
+  modalField: {
+    marginBottom: 20,
+  },
+  modalError: {
+    ...typography.captions.c1.regular,
+    color: colors.error[50],
+    marginTop: 6,
+    marginLeft: 4,
+  },
+  modalButton: {
+    marginTop: 4,
+  },
+  linkedCoachCard: {
+    backgroundColor: colors.success.bg,
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 16,
+    marginBottom: 20,
+    gap: 6,
+  },
+  linkedCoachNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 4,
+  },
+  linkedCoachName: {
+    ...typography.body.b2.semiBold,
+    color: colors.success.main,
+  },
+  linkedCoachCode: {
+    ...typography.body.b2.semiBold,
+    color: colors.neutrals.white,
+  },
+  linkedCoachMeta: {
+    ...typography.captions.c1.regular,
+    color: colors.neutrals[50],
+  },
+  unlinkButton: {
+    backgroundColor: 'transparent',
+    borderColor: colors.error[50],
+  },
+  unlinkButtonText: {
+    color: colors.error[65],
+  },
+  modeOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: colors.neutrals.card_border_15,
+    backgroundColor: colors.neutrals.card_bg,
+    paddingHorizontal: 14,
+    paddingVertical: 14,
+    marginBottom: 12,
+  },
+  modeOptionActive: {
+    borderColor: colors.success.main,
+    backgroundColor: colors.success.bg,
+  },
+  modeOptionIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.glass.white_05,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modeOptionInfo: {
+    flex: 1,
+  },
+  modeOptionTitle: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.white,
+  },
+  modeOptionSubtitle: {
+    ...typography.captions.c1.regular,
+    color: colors.neutrals[60],
+    marginTop: 2,
+  },
+});

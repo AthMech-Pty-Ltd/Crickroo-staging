@@ -1,0 +1,197 @@
+import { StyleSheet } from 'react-native';
+import { colors } from '../../../theme/colors';
+import { typography } from '../../../theme/typography';
+
+export const styles = StyleSheet.create({
+  trigger: {
+    minHeight: 50,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#171717',
+    backgroundColor: '#0A0A0A',
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  triggerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+    minWidth: 0,
+  },
+  triggerTextWrap: {
+    flex: 1,
+    minWidth: 0,
+    paddingRight: 10,
+  },
+  triggerTitle: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.white,
+  },
+  backdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.42)',
+    justifyContent: 'flex-end',
+  },
+  sheet: {
+    backgroundColor: '#1F1F21',
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    paddingTop: 10,
+    paddingHorizontal: 16,
+    paddingBottom: 24,
+    minHeight: 470,
+    maxHeight: '82%',
+  },
+  handle: {
+    alignSelf: 'center',
+    width: 54,
+    height: 4,
+    borderRadius: 999,
+    backgroundColor: '#5C5C60',
+    marginBottom: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  title: {
+    fontFamily: 'SF Pro',
+    fontWeight: '600',
+    fontSize: 18,
+    lineHeight: 24,
+    color: colors.neutrals.white,
+  },
+  closeButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#2C2C2F',
+  },
+  tabs: {
+    flexDirection: 'row',
+    borderRadius: 15,
+    backgroundColor: '#09090A',
+    borderWidth: 1,
+    borderColor: '#2B2B2E',
+    padding: 3,
+    marginBottom: 14,
+  },
+  tab: {
+    flex: 1,
+    minHeight: 42,
+    borderRadius: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  tabActive: {
+    backgroundColor: colors.neutrals.white,
+  },
+  tabText: {
+    ...typography.body.b2.medium,
+    color: colors.neutrals[50],
+  },
+  tabTextActive: {
+    color: colors.neutrals.black,
+  },
+  helperText: {
+    ...typography.captions.c1.regular,
+    color: colors.neutrals[50],
+    marginBottom: 12,
+    paddingHorizontal: 2,
+  },
+  loadingRow: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: 12,
+  },
+  listContent: {
+    paddingBottom: 12,
+  },
+  optionCard: {
+    borderRadius: 18,
+    backgroundColor: '#09090A',
+    borderWidth: 1,
+    borderColor: '#1E1E22',
+    paddingHorizontal: 14,
+    paddingVertical: 13,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  optionCardSelected: {
+    backgroundColor: 'rgba(92, 31, 12, 0.66)',
+    borderColor: colors.primary.main,
+  },
+  optionCardDisabled: {
+    opacity: 0.58,
+  },
+  optionLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    flex: 1,
+    minWidth: 0,
+  },
+  optionIcon: {
+    width: 34,
+    height: 34,
+    borderRadius: 12,
+    backgroundColor: '#202025',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  optionIconSelected: {
+    backgroundColor: colors.primary.main,
+  },
+  optionTextWrap: {
+    flex: 1,
+    minWidth: 0,
+  },
+  optionTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 12,
+  },
+  optionTitle: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.white,
+    flex: 1,
+  },
+  optionTimeText: {
+    ...typography.captions.c1.medium,
+    color: colors.neutrals[50],
+  },
+  optionMetaText: {
+    ...typography.captions.c1.medium,
+    color: colors.neutrals[50],
+    marginTop: 2,
+  },
+  singleSessionCard: {
+    borderRadius: 18,
+    backgroundColor: '#09090A',
+    borderWidth: 1,
+    borderColor: '#1E1E22',
+    padding: 16,
+    marginTop: 6,
+  },
+  singleSessionTitle: {
+    ...typography.body.b1.semiBold,
+    color: colors.neutrals.white,
+    marginBottom: 6,
+  },
+  singleSessionText: {
+    ...typography.body.b2.regular,
+    color: colors.neutrals[60],
+  },
+});

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "889552664121",
+    "project_id": "crickroo",
+    "storage_bucket": "crickroo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889552664121:android:7add9271c93f4976f2ffe8",
+        "android_client_info": {
+          "package_name": "com.athmech.crickroo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889552664121-k6jalqckjn44csnrp494b4f1l5rejkmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk1sPsGgRifVIj7TO-Anm6irdVH1pnKyM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889552664121-k6jalqckjn44csnrp494b4f1l5rejkmo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "889552664121-1octruuhdcnn9lfu4il4isq4k0invg9v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.athmech.crickroo2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,102 @@
+# Resolve react_native_pods.rb with node to allow for hoisting
+require_relative '../node_modules/react-native-permissions/scripts/setup.rb'
+require Pod::Executable.execute_command('node', ['-p',
+  'require.resolve(
+    "react-native/scripts/react_native_pods.rb",
+    {paths: [process.argv[1]]},
+  )', __dir__]).strip
+
+platform :ios, '15.1'
+
+setup_permissions([
+  'Camera',
+  'LocationWhenInUse',
+  'Microphone',
+  'PhotoLibrary',
+  'PhotoLibraryAddOnly',
+])
+
+prepare_react_native_project!
+
+# Firebase Auth/Firestore ship Swift; building them as static frameworks lets the
+# generated *-Swift.h headers be found. Required since adding @react-native-firebase/auth.
+$RNFirebaseAsStaticFramework = true
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+else
+  use_frameworks! :linkage => :static
+end
+
+# RNFB's Obj-C wrapper pods import React headers textually (#import <React/...>).
+# Under use_frameworks! they'd compile as Clang modules and fail with
+# "RCTPromiseRejectBlock must be imported from module 'RNFBApp.RNFBAppModule'".
+# Force just these wrappers to build as static libraries (Expo forceStaticLinking
+# equivalent); FirebaseAuth & co. stay static frameworks so the -Swift.h headers resolve.
+$rnfb_static_library_pods = ['RNFBApp', 'RNFBAuth', 'RNFBMessaging']
+
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if $rnfb_static_library_pods.include?(pod.name)
+      def pod.build_type
+        Pod::BuildType.static_library
+      end
+    end
+  end
+end
+
+target 'Crickeroo' do
+  config = use_native_modules!
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false,
+      # :ccache_enabled => true
+    )
+
+    # Some checked-in CocoaPods xcconfigs had a machine-specific Hermes path.
+    # Force a repo-local path so iOS bundling works on any developer machine.
+    pods_target_support = File.join(
+      Pod::Config.instance.installation_root,
+      'Pods',
+      'Target Support Files',
+      'Pods-Crickeroo'
+    )
+    Dir.glob(File.join(pods_target_support, 'Pods-Crickeroo.*.xcconfig')).each do |xcconfig_path|
+      next unless File.exist?(xcconfig_path)
+
+      contents = File.read(xcconfig_path)
+      updated = contents.gsub(
+        /^HERMES_CLI_PATH = .*$/,
+        'HERMES_CLI_PATH = ${PODS_ROOT}/hermes-engine/destroot/bin/hermesc'
+      )
+      File.write(xcconfig_path, updated) if updated != contents
+    end
+
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++20'
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      end
+    end
+
+    main_project = Xcodeproj::Project.open('Crickeroo.xcodeproj')
+    main_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+        config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++20'
+      end
+    end
+    main_project.save
+  end
+end

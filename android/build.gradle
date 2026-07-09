@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = "28.2.13676358"
+        kotlinVersion = "2.1.20"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("com.google.gms:google-services:4.4.2")
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
+
+subprojects {
+    def applyNdkVersion = { proj ->
+        if (proj.hasProperty('android')) {
+            proj.android {
+                if (proj.android.hasProperty('ndkVersion')) {
+                    ndkVersion rootProject.ext.ndkVersion
+                }
+            }
+        }
+    }
+    if (project.state.executed) {
+        applyNdkVersion(project)
+    } else {
+        project.afterEvaluate { applyNdkVersion(it) }
+    }
+}
+allprojects {
+    repositories {
+        maven {
+            url("$rootDir/../node_modules/@react-native-async-storage/async-storage/android/local_repo")
+        }
+        google()
+        mavenCentral()
+    }
+    // Force newer gotev android-upload-service that registers BroadcastReceivers
+    // with RECEIVER_NOT_EXPORTED flag, required on targetSdk >= 34 (Android 14+).
+    // react-native-background-upload 6.6.0 bundles 4.7.0 which predates this fix.
+    configurations.all {
+        resolutionStrategy {
+            force 'net.gotev:uploadservice:4.9.2'
+            force 'net.gotev:uploadservice-okhttp:4.9.2'
+        }
+    }
+}
